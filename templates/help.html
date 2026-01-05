@@ -1,0 +1,147 @@
+{% extends 'base_dev.html' %}
+
+{% block wrapper %}
+<div>
+	<h3 class="lboxHeading">Help</h3>
+	<p class="uppercase"><strong>Starting the App</strong></p>
+	<p>Click on the ‘build’ link in the header to start the interactive platform</p>
+	<br>
+	<div>
+		<p class="uppercase"><strong>Viewing the database of objects</strong></p>
+		<div class="paddingBottom10">
+			<p>The database contains all the objects, fragments and assemblages. These are stored in the online repository and occupy the left column on the screen titled ‘database’.</p>
+			<p><em>Note:</em> Users can create and save new assemblages. If you wish to upload new objects and fragments, email Ranjit at ranjit@buildbrowse.com.</p>
+		</div>
+		
+		<div class="paddingBottom10">
+			<p><strong>Filtering and Search</strong></p>
+			<div class="paddingBottom10">
+				<p>You can use the filtering and search features to modify the list of objects.</p>
+			</div>
+			<p><em>The dropdown menu for the filtering list contains the following options</em></p>
+			<p>
+			- <strong><em>All</em></strong><br />
+			- <strong><em>Objects:</em></strong> Articles or found items (in this case accessed from a market), salvaged from a particular market.<br>
+			- <strong><em>Fragments:</em></strong> A part of an object, usually incomplete, usually further devaluing the object.<br>
+			- <strong><em>Assemblages:</em></strong> The interconnection of two or more objects/fragments which results in the user's new artistic 	composition.<br>
+			- <strong><em>My Objects:</em></strong> The list of exported assemblages (PNG images) that a user has created
+			</p>
+		</div>
+
+		<div class="paddingBottom10">
+			<p><strong>Advanced Search</strong></p>
+			<p>Clicking the ‘More’ button to the right of the search box opens an optional advanced search where you can narrow down your search.</p>
+		</div>				
+
+		<p><strong>List of Object Thumbnails</strong></p>	
+		<p>Each object within the list displays a representative thumbnail, name, width and a ‘View More’ icon (represented by an <span class="icomoon">+</span>) that appears on mouseover or hover). Clicking the ‘View More’ icon takes you to a new browser tab, where you can view detailed information about the object.</p>
+		<br>
+		<p class="uppercase"><strong>Using the Canvas Editor</strong></p>			
+		<div class="paddingBottom10">
+			<p>The canvas editor is the virtual editor where you can drag objects and create and save new imaginations.</p>		
+		</div>
+		<div class="paddingBottom10">
+			<p><strong>Dragging objects:</strong> <br>
+	If your mouse if hovered over the thumbnail of an object, your cursor will display a drag symbol, indicating that you can drag the object to the canvas editor on the right. Alternately, you can double click on the thumbnail and it will load the corresponding image in the canvas.</p>
+	
+			<p>You can drag as many objects as you like to the canvas, one at a time.</p>
+		</div>
+		<p><strong>Tools and Editing Features:</strong></p>
+		<div class="paddingBottom10">	
+			<p>The toolbar on the left enables you to comfortably edit your objects. Hovering over each icon shows its functionality.</p>
+		</div>
+		<div class="paddingBottom10">
+			<div class="keyboardBlock">
+				<p><span class="keyboardIcon">6</span><strong><em>Undo:</em> </strong> Allows you to undo your actions multiple times.</p>
+				<p>Keyboard shortcut: z</p>
+		</div>
+
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">5</span><strong><em>Redo:</em> </strong> Allows you to redo the actions that you previously undid.</p>
+			<p>Keyboard shortcut: y</p>
+		</div>
+	
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">*</span><strong><em>Join:</em> </strong>To join two or more objects, you first need to select them (either by drawing a ‘box’ around the objects you wish to join or keeping the Shift key pressed whilst clicking the objects you wish to join) and then click the Join icon.</p>
+			<p><em>Note:</em> Once you join objects, the only way to unjoin them is by clicking Undo.</p>
+			<p>Keyboard shortcut: j</p>
+		</div>
+   
+		<div class="keyboardBlock">
+			<p><img src="/static/img/stback.png" alt="send-to-back" width="21" height="21" class="keyboardImg"><strong><em>Bring to front:</em> </strong>Select an object with your cursor and click bring to front if you want it to appear over an overlapping object.</p>
+			<p>Keyboard shortcut: f</p>
+		</div>
+
+		<div class="keyboardBlock">
+			<p><img src="/static/img/stfront.png" alt="send-to-back" width="21" height="21" class="keyboardImg"><strong>Send to back: </strong>Select an object with your cursor and click send to back if you want it to appear under an overlapping object.</p>
+			<p>Keyboard shortcut: b</p>
+		</div>
+
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">(</span><strong>Scale-up: </strong>This mimics the functionality of the scale slider on the bottom right of the canvas editor, i.e. it increases the size of the canvas.</p>
+			<p>Keyboard shortcut: q</p>
+		</div>
+ 
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">'</span><strong>Scale-down: </strong>This mimics the functionality of the scale slider on the bottom right of the canvas editor, i.e. it decreases the size of the canvas.</p>
+			<p>Keyboard shortcut: w</p>
+		</div>
+		 
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">3</span><strong>Delete: </strong>Select an object with your cursor and click delete to remove it from the canvas. You can press undo to cancel this action.</p>
+			<p>Keyboard shortcut: delete</p>
+		</div>
+
+		<div class="keyboardBlock">
+			<p><img src="/static/img/pan-hand.png" alt="pan" width="21" height="21" class="keyboardImg"><strong>Pan: </strong>Clicking on pan will change the cursor to display a pan symbol and highlights the pan icon in the toolbar. Being in pan mode allows you to drag your cursor and access hidden parts of the canvas, if you’re zoomed in.</p>
+			<p><em>Note: </em>When in pan mode, clicking on objects does not select them as usual. To exit pan mode, press the Escape key or click the Pan icon once more.</p>
+			<p>Keyboard shortcut: p to activate and escape to deactivate</p>
+		</div>
+ 
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">"</span><strong>New: </strong>Creates a new canvas/project in the canvas editor</p>
+			<p>Keyboard shortcut: alt + n</p>
+		</div>
+	
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">2</span><strong>Open: </strong>Opens a dialog with a list of your past saved projects</p>
+			<p>Keyboard shortcut: alt + o</p>
+		</div>
+	
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">#</span><strong>Save: </strong>Saves the current project you’re working on</p>
+			<p>Keyboard shortcut: alt + s</p>
+		</div>
+		
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">$</span><strong>Save as: </strong>Saves a copy of the current project you’re working on</p>
+			<p>Keyboard shortcut: alt + s</p>
+		</div>
+
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">4</span><strong>Export: </strong>Exports your work. This gets added to the database as a new assemblage, in a PNG image file format. Do note that this is different from saving a project, whose different objects can be modified. When are you done with your project and want to add it to the database for others to access, you can hit export.</p>
+			<p>Keyboard shortcut: alt + e</p>
+		</div>
+	
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">.</span><strong>Print: </strong>Opens a new browser tab where you can take a printout of the current state of your work</p>
+			<p>Keyboard shortcut: alt + r</p>
+		</div>
+	</div>
+	
+	<div class="paddingBottom10">
+		<p><strong>Zooming:</strong> You can use the slider titled ‘Scale’ on the bottom right of the canvas editor to increase or decrease the canvas dimensions, which will proportionally modify the size of the objects.</p>
+	</div>			
+
+	<div class="paddingBottom10">
+		<p><strong>Scrollbars</strong>: In addition to pan, the scrollbars are useful to navigate within the canvas editor. Horizontal and vertical scrollbars are provided on zoom.</p>
+	</div>
+	
+	<div class="paddingBottom10">
+		<p><strong>Customising your canvas editor: </strong>The dropdown menu next to the Print button contains a list of different swatches, that you can use to customise the background of the canvas editor.</p>
+	</div>
+</div> <!-- helpLbox  -->
+
+
+{% endblock %}
+

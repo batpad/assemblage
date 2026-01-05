@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+
+    {% block extra_css %}
+        <link rel="stylesheet" href="/static/css/select2.css" type="text/css" />
+        <style type="text/css">
+
+        </style>
+    {% endblock %}
+
+    {% block extra_js %}
+
+    <script type="text/javascript" src="/static/js/all.js"></script>
+    <script type="text/javascript" src="/static/js/select2.js"></script>
+	<script type="text/javascript" src="/static/js/util.js"></script>
+	<script type="text/javascript" src="/static/js/ui.js"></script>
+	<script type="text/javascript" src="/static/js/talk.js"></script>
+	<script type="text/javascript" src="/static/js/helper.js"></script>
+	<script type="text/javascript" src="/static/js/html.js"></script>
+	<script type="text/javascript" src="/static/js/fabric_func.js"></script>
+    <script type="text/javascript" src="/static/js/draw.js"></script>
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+			CHelp.init(document);
+		});
+	
+    </script>   
+	
+    {% endblock %}
+
+    
+    
+    {% block wrapper %}
+        
+        
+    <p id="logo">
+        <a href="/test">build</a> / <a href="/browse">brows<span>e</span></a>
+    </p>
+    
+    <div id="editToolBlock">
+        
+            <div class="span4">
+                <input id="searchList" placeholder="Search..." type="text" />
+            </div>
+            
+            <div class="filterObjects">
+                <input type="checkbox" id="objectFilter" /><label for="objectFilter">Objects</label>
+                <input type="checkbox" id="fragmentFilter" /><label for="fragmentFilter">Fragments</label>
+                <input type="checkbox" id="assemblageFilter" /><label for="assemblageFilter">Assemblages</label>
+                <input type="checkbox" id="allFilter" /><label for="all">All</label>
+            </div>
+    <div class="clear"></div>
+    
+    <br/>
+    
+        <div id="listView">
+       <!--     <p class="titlesBorder" id="databaseTitle">Database</p> -->
+      
+        </div> <!-- end list view -->
+    
+       <div id="canvasView"> <!-- removed buttons temp -->
+            
+			<p class="titlesBorder">Canvas Editor</p>
+			<!-- 
+            <div id="canvasIconBlock">
+                <p title="NEW">&#x31;</p>
+                <p title="OPEN">&#x25;</p>
+                <p title="EXPORT">&#x24;</p>
+                <p title="SAVE">&#x26;</p>
+                <p title="ZOOM-IN">&#x28;</p>
+                <p title="ZOOM-OUT">&#x27;</p>
+                <p title="JOIN">&#x2a;</p>
+                <p title="SEND TO FRONT">&#x2f;</p>
+                <p title="SEND TO BACK">&#x2e;</p>
+            </div>
+			 -->
+            <div id="loadingImage" style="display:none;">
+                Loading Image onto Canvas...
+            </div>
+            <canvas id="c" width=800px height=600px >
+            </canvas> <br />
+            <div id="canvasControls">
+                <p>Scale: <input type="range" id="scale" class="range" min="0" max="360" value="0" /></p>
+                <div class="conversion">
+                    <p class="cm">5cm</p>
+                    <p class="px">50px</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+      </div><!-- end canvas view -->
+        
+      <div class="clear"></div>
+    
+    </div> <!-- end edit tool block -->
+    
+    {% endblock %}

@@ -1,0 +1,51 @@
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Django
+*.pyc
+*.pyo
+__pycache__/
+*.db
+*.sqlite3
+assemblage.db
+secret.txt
+
+# Database backups
+*.sql
+*.dump
+
+# Media files
+assemblage/media/cache/
+assemblage/media/uploads/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Old version control
+.bzr/
+
+# Old shell/config files
+.bash_history
+.bash_logout
+.bashrc
+.profile
+.viminfo
+.mysql_history
+.ssh/
+.cache/
+.ipython/
+
+# Local settings (if any)
+local_settings_local.py

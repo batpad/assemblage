@@ -1,0 +1,135 @@
+{% extends 'base_dev.html' %}
+
+
+    {% block extra_css %}
+        <link rel="stylesheet" href="/static/css/select2.css" type="text/css" />
+        <style type="text/css">
+
+        </style>
+    {% endblock %}
+
+    {% block extra_js %}
+    <!-- <script src="https://raw.github.com/kangax/fabric.js/master/dist/all.js"></script> -->
+    <!-- <script src="http://fabricjs.com/lib/fabric.js"></script> -->
+    <script type="text/javascript" src="/static/js/select2.js"></script>    
+	<!-- custom js files added -->
+	<script type="text/javascript" src="https://github.com/fryn/html5slider/raw/master/html5slider.js" ></script>
+	<script type="text/javascript" src="/static/js/jquery-ui-1.8.23.custom.min.js"></script>
+	<script type="text/javascript" src="/static/js/new/all.js"></script> <!-- fabric js -->
+	<script type="text/javascript" src="/static/js/new/helper.js"></script>
+	<script type="text/javascript" src="/static/js/new/items.js"></script>
+	<script type="text/javascript" src="/static/js/new/html.js"></script>
+	<script type="text/javascript" src="/static/js/new/fabric_helper.js"></script>
+	<!-- <script type="text/javascript" src="/static/js/new/fabric.undo.redo-clean.js"></script> -->
+	<script type="text/javascript" src="/static/js/new/fabric.undo.redo.js"></script> 
+    
+    <script>
+	//var APP_ID = {{ app.id }};
+    </script>
+<!--	<script src="html5slider.js"></script>-->
+    {% endblock %}
+
+    
+    
+    {% block wrapper %}
+        
+    <div id="logoBlock">    
+    <p id="logo">
+        <a href="/testjamie">build</a> / <a href="/browse">brows<span>e</span></a>
+    </p>
+    </div>
+    
+    <div id="editToolBlock">
+            
+            <div id="searchFilterBlock">
+                <div class="filterObjects">
+                    <input type="checkbox" id="objectFilter" /><label for="objectFilter">Objects</label>
+                    <br />
+                    <input type="checkbox" id="fragmentFilter" /><label for="fragmentFilter">Fragments</label>
+                    <br />
+                    <input type="checkbox" id="assemblageFilter" /><label for="assemblageFilter">Assemblages</label>
+                    <br />
+                    <input type="checkbox" id="allFilter" /><label for="all">All</label>
+                </div>
+    
+                <div id="searchFilter">    
+                    <div class="span4">
+                        
+                        <input id="searchList" placeholder="Search..." type="text" />
+                        
+                    </div>
+        
+                </div> <!-- end search filter -->
+
+            <p class="titlesBorder" id="databaseTitle">Database</p>
+
+
+            </div> <!-- end search filter block -->
+
+
+        <div id="canvasIconOptions">
+ 
+        <div id="canvasControls">
+            <p class="rangeBlock">Scale: <input type="range" id="scale" class="range" min="0.1" max="2" value="0.2" step="0.1"/></p>
+            
+			<!--
+		   <div id="rangeSlider">
+                <div id="exampleSlider1" class="noUiSlider"></div>
+                <span class="exampleElement" id="examplePlace1"></span>
+           </div>
+		   -->
+<!--<label>Zoom Range: </label><input type="text" value="5" class="slideControl" />-->
+            <div class="conversion">
+                <p class="cm">5cm</p>
+                <p class="px">50px</p>
+            </div>
+        </div>  
+  
+            <div id="canvasIconBlock">
+               <p class="canvasIcon" onclick="CHelp.addRect();">&#x22;<span class="tooltip">New</span></p>
+               <p class="canvasIcon">&#x32;<span class="tooltip">Open</span></p>
+               <p class="canvasIcon" onclick="CHelp.exportCanvas();">&#x34;<span class="tooltip">Export</span></p>
+               <p class="canvasIcon">&#x26;<span class="tooltip">Save</span></p>
+               <p class="canvasIcon" onclick="CHelp.undo();">&#x36;<span class="tooltip">Undo</span></p>
+               <p class="canvasIcon" onclick="CHelp.redo();">&#x35;<span class="tooltip">Redo</span></p>               
+               <p class="canvasIcon" onclick="CHelp.joinObjects();">&#x2a;<span class="tooltip">Join</span></p>
+               <p class="canvasIcon" onclick="CHelp.bringToFront();">&#x37;<span class="tooltip">Send-to-front</span></p>
+               <p class="canvasIcon" onclick="CHelp.sendToBack();">&#x29;<span class="tooltip">Send-to-back</span></p>
+               <p class="canvasIcon" onclick="CHelp.deleteObjects();">&#x33;<span class="tooltip">Trash</span></p>
+               <p class="canvasIcon">&#x2e;<span class="tooltip">Print</span></p>
+           </div>
+                                    
+        </div> <!-- end canvas icon options -->
+   
+                <div class="clear"></div>
+    
+        <div id="listView">
+        
+        </div> <!-- end list view -->
+    
+       <div id="canvasView">
+            <p class="titlesBorder">Canvas Editor</p>
+
+            <div id="loadingImage" style="display:none;">
+                Loading Image onto Canvas...
+            </div>
+            <canvas id="c" style="width:500px;height:600px;">
+            </canvas> <br />
+            <!--<div id="canvasControls">
+                <p>Scale: <input type="range" id="scale" class="range" min="0" max="360" value="0" /></p>
+                <div class="conversion">
+                    <p class="cm">5cm</p>
+                    <p class="px">50px</p>
+                </div>
+            </div>-->
+            <div class="clear"></div>
+ 
+      </div><!-- end canvas view -->
+        
+        <div class="clear"></div>
+ 
+    </div> <!-- end edit tool block -->
+    
+    <div class="clear"></div>
+    
+    {% endblock %}

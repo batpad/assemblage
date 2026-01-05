@@ -1,0 +1,82 @@
+.rbox_overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+	bottom: 0;
+	right: 0;
+    background: #fff;
+    background: rgba(255,255,255,0.95);
+    display: none;
+    z-index: 10000;
+	text-align: center;
+}
+
+.rbox_lightBoxBlock {
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    position: relative;
+	text-align: left;
+	display: inline-block;
+	font-size: 90%;
+	line-height: 1.6;
+}
+
+.rbox_lightBox {
+    padding: 10px;
+    position: relative;
+}
+
+.nextLightBox, .prevLightBox, .closeLightBox {
+	color: #777;
+}
+
+.openLightBox {
+	position: relative;
+}
+
+.rboxOpen {
+	cursor: pointer;
+}
+
+.nextLightBox, .prevLightBox, .closeLightBox {
+	text-decoration: none;
+}
+
+.closeLightBox {
+	position: absolute;
+	right: -8px;
+	top:-16px;
+	padding: 4px;
+	font-size: 120%;
+}
+
+.nextLightBox, .prevLightBox {
+	position: absolute;
+	top: 44%;
+	font-size: 300%;
+}
+
+.nextLightBox {
+	right: -30px;	
+}
+
+.prevLightBox {
+	left: -30px;	
+}
+
+.rbox_lightBoxContent {
+	padding: 22px;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.rbox_lightBoxContent iframe {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+}
+
+

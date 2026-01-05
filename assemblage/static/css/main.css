@@ -1,0 +1,850 @@
+* {
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	
+	box-sizing:border-box; 
+}
+
+@font-face {
+    font-family: 'LatinModernMono10Regular';
+    src: url('/static/css/fonts/latinmodern/lmmono10-regular-webfont.eot');
+    src: url('/static/css/fonts/latinmodern/lmmono10-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/css/fonts/latinmodern/lmmono10-regular-webfont.woff') format('woff'),
+         url('/static/css/fonts/latinmodern/lmmono10-regular-webfont.ttf') format('truetype'),
+         url('/static/css/fonts/latinmodern/lmmono10-regular-webfont.svg#LatinModernMono10Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('/static/css/fonts/icomoon/icomoon.eot');
+	src:url('/static/css/fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('/static/css/fonts/icomoon/icomoon.svg#icomoon') format('svg'),
+		url('/static/css/fonts/icomoon/icomoon.woff') format('woff'),
+		url('/static/css/fonts/icomoon/icomoon.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+html, body  { 
+	height:	100%;
+	width:	100%;
+}
+
+body {
+	background-color:	#fff;
+	font-family:	Helvetica, Arial, sans-serif;
+	color:	#000;
+	font-size:	16px;
+	line-height: 1.4;
+}
+
+/* GLOBAL STYLES */
+
+.clear { 
+	clear:both;
+} 
+
+a, #contactInfo span {
+	text-decoration:none;
+	color: #999;
+}
+
+a:hover, a:focus, .listMenu li:hover, .listMenu li:focus, #contactInfo span:hover, #contactInfo span:focus {
+	color: #a952e7;
+}
+
+h6 {
+	font-size:110%;
+}
+
+h5 {
+	font-size:120%;
+}
+
+h4 {
+	font-size:130%;
+}
+
+h3 {
+	font-size:140%;
+}
+
+h2 {
+	font-size:150%;
+}
+
+h1 {
+	font-size:160%;
+}
+
+em, i {
+	font-style: italic;
+}
+
+img {
+	max-width:100%;
+	height: auto;
+}
+
+input[type="submit"] {
+	cursor:pointer;
+}
+
+input:focus, .formDialog:focus {
+	box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
+	outline: none;
+}
+
+textarea {
+	vertical-align:top;
+}
+
+.center {
+	text-align: center;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.none {
+	display: none;
+}
+
+.col49 {
+	width: 50%;
+	float: left;
+}
+
+.floatLeft {
+	float: left;
+}
+
+.floatRight {
+	float: right;
+}
+
+/* END GLOBAL STYLES */
+
+#wrapper {
+	margin: 0 auto;
+	padding: 30px 10px 0px 10px;
+	border-radius: 10px;
+}
+
+#logoBlock, #listSearchBlock, #canvasViewWrapper, #canvasIconOptions, #aboutBlock, #helpBlock, input[type='range'], .rbox_lightBoxContent {
+	border: 1px solid #bbb;
+}
+
+.lboxHeading {
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.keyboardBlock, .paddingBottom10 {
+	padding: 0 0 10px 0;
+}
+
+#appNameView, #loginForms, #contactInfo {
+	font-size: 80%;
+	position: absolute;
+	color: #999;
+	cursor: pointer;
+}
+
+#appNameView {
+	background: #666;
+	color: #ddd;
+	padding: 0 5px;
+	border-radius: 2px;
+}
+
+#loginForms, #appNameView {
+	right: 26px;
+}
+
+#contactInfo {
+	left: 26px;
+}
+
+#loginForms {
+	top: 3px;
+}
+
+#appNameView, #contactInfo {
+	bottom: 3px;
+}
+
+.imgHomeMain {
+	display: block;
+	margin: 0 auto;
+}
+
+.menuWrapBlock {
+	display: table;
+	border-collapse: separate;
+	border-spacing: 20px;
+	margin: 0 -20px; 
+}
+
+.menuBlock {
+	display: table-cell;
+	width: 50%;
+	font-size: 90%;
+}
+
+#logoBlock, #listSearchBlock, #aboutBlock, #helpBlock, .rounded, .rbox_lightBoxContent {
+	border-radius: 10px;
+}
+
+#canvasViewWrapper {
+	border-radius: 10px 10px 0 0;
+}
+
+#canvasIconOptions {
+	border-radius: 0 0 10px 10px;
+	border-top: none;
+	min-width: 200px;
+	position: absolute;
+	left: 0;
+	right: 0;	
+}
+
+#logoBlock {
+	position: relative;
+	padding: 16px 0;
+	margin: 0 8px;
+}
+
+#aboutBlockWrap, #helpBlockWrap {
+	float: left;
+	font-size: 100%;
+	margin: 26px 0 0 0;
+}
+
+#aboutBlockWrap {
+	padding-right: 10px;
+	width: 50%;
+}
+
+#helpBlockWrap {
+	padding-left: 10px;
+	width: 50%;
+}
+
+#aboutBlock, #helpBlock {
+	padding: 22px;
+	position: relative;
+}
+
+#logo {
+	font-size: 230%;
+	letter-spacing: 40px;
+	color: #777;
+	line-height: 0.2;
+	margin: 0 auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: -6px;
+	text-align: center;
+	width: 824px;
+	background: #fff;
+}
+
+#logo a {
+	padding: 0 4px;
+}
+
+#logo a span {
+	letter-spacing: 0;
+}
+
+#editToolBlock {
+	padding: 24px 10px 10px 10px;
+}
+
+#searchFilterBlock {
+	position: relative;
+	padding: 20px 8px 10px 8px;
+	width: 330px;
+}
+
+#selectFilter {
+	float: left;
+	padding-right: 12px;
+}
+
+.selectCustom {
+	padding: 6px;
+}
+
+select {
+	background: #e5e5e5;
+	border: 2px solid #ddd;
+	padding: 2px;
+}
+
+#selectFilter select {
+	width: 90px;
+	height: 30px;
+	padding: 2px;
+}
+
+#searchFilter {
+	float: left;
+	padding-right: 10px;
+}
+
+.buttonAppStyle, select, .editForm input[type="submit"] {
+    background: #eee;
+}
+ 
+.buttonAppStyle, .editForm input[type="submit"] {
+	font-size: 90%;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+	border: 1px solid #ddd;
+	padding: 4px 9px 5px;
+	color: #777;
+	cursor: pointer;
+}
+
+#searchLink {
+	float: right;	
+}
+
+#load-app {
+	display: none;
+	height: 320px;
+	cursor: default;
+}
+
+.scrollbarDiv {
+	height: 250px;
+	overflow: hidden;
+	padding: 0 10px 0 0;
+}
+
+#appView1 {
+	color: red;
+}
+
+.formDialog {
+	padding: 10px 10px 16px 10px;
+}
+
+.formDialog h4 {
+	padding: 0 0 10px 0;
+	line-height: 1.1;
+	font-size: 120%;
+}
+
+.formDialog label {
+	font-size: 90%;
+	display: inline-block;
+	float: left;
+	min-width: 120px;
+	padding: 6px 6px 0 0;
+}
+
+.formDialog input[type="text"], .formDialog input[type="password"], .formDialog textarea {
+	border: 1px solid #aaa;
+	padding: 3px 4px;
+	box-shadow: inset 0px 2px 6px rgba(0,0,0,0.2);
+	
+}
+
+.formDialog select, .formDialog input, .formDialog button {
+	float: left;
+	width: 145px;
+	color: #666;
+}
+
+.formAutoWidth button {
+	width: auto;
+	float: none;
+}
+
+.formRequired {
+	float: left;
+	color: red;
+}
+
+.formError:empty {
+	display: none;
+}
+
+.formLoad {
+	border-bottom: 1px solid #aaa;
+	padding: 4px 0;
+}
+
+.formError {
+	color:#fff;
+	margin: 10px 0 4px 0;
+	background: #4a1371;
+	border: 3px double #aaa;
+	border-radius: 6px;
+	padding: 2px;
+	font-size: 100%;
+}
+
+#signUp, #signIn, #newAppForm, #nameForm, #exportForm, #searchAdvanced {
+	display: none;
+}
+
+#nameForm, #exportForm, #searchAdvanced {
+	cursor: default;
+}
+
+.span4 {
+	width: 150px;
+}
+
+input[type='range'] {
+    -webkit-appearance: none !important;
+    background:#eee;
+    height:8px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background:#eee;
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    height:16px;
+    width:10px;
+	border: 1px solid #bbb;
+}
+
+.viewDetails, #canvasIconBlock, .canvasIcon, .keyboardIcon, .icomoon {
+	font-family: 'icomoon';
+} 
+
+.keyboardIcon, .keyboardImg {
+	display: inline-block;
+	padding: 0 6px 0 0;
+}
+
+.viewDetails {
+	font-size: 130%;
+	color: inherit;
+	visibility: hidden;
+}
+
+#canvasIconOptions {
+	float: left;
+}
+
+#canvasIconBlock {
+	float: left;
+	font-size: 100%;
+	color: #555;
+	padding: 8px 3px 0 3px;
+}
+
+#canvasIconInner {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 20;
+	border-radius: 6px 0px 6px 0px;
+	background: #ddd;
+}
+
+.canvasIcon {
+	padding: 2px 4px;
+	cursor: pointer;
+	border-radius: 4px;
+	z-index: 20;
+	position: relative;	
+	display: inline-block;	
+}
+
+#canvasIconInner .canvasIcon {
+	display: block;
+}
+
+.iconsBackFront	{
+	width: 16px;
+	height: 16px;
+}
+	
+.tooltip {
+	font-size: 68%;
+	font-family: Helvetica, sans-serif;
+	background: #555;
+	padding: 2px 4px;
+	border-radius: 4px;
+	color: #eee;
+	position: absolute;
+	top:-26px;
+	left: -3px;
+	display: none;
+	white-space: nowrap;
+}
+
+.canvasIcon:hover .tooltip {
+	display: block;
+}
+
+#canvasIconInner .tooltip {
+	top: 5px;
+	left: 30px;
+	z-index: 10000;
+	text-align: center;
+	min-width: 77px;
+}
+
+#zoomPlus {
+	display: inline-block;
+	margin-right: 6px;
+}
+
+.locationList {
+	position: absolute;
+	left: 42%;
+	top:0px;
+	padding: 4px 8px;
+	display: block;
+	font-size: 140%;
+	background: #ccc;
+}
+
+input[type="text"] {
+	padding: 1px 4px;
+}
+
+.listMenu {
+	list-style: circle;
+	padding-left: 12px;	
+}
+
+.listMenu a {
+	color: inherit;
+}
+
+.lboxHeading, .titlesBorder, select, .buttonAppStyle, .formDialog, .formDialog input, #loginForms, .rangeBlock, #logo, .select2-container .select2-choice span, .validate, .monospaceFont, .select2-no-results, #listView:empty:after, #aboutBlockWrap, #helpBlockWrap, #contactInfo, #appNameView, .blockUI, .metaDataObjectPage, #map {
+	font-family: 'LatinModernMono10Regular', 'Courier New', Courier, 'Andale Mono', monospace;
+}
+
+.titlesBorder {
+	font-size: 130%;
+	letter-spacing: -1px;
+	text-transform: lowercase;
+	background: white;
+	padding: 0 8px;
+	color: #666;
+	line-height: 1.2;
+	position: absolute;
+	top: -15px;
+}
+
+#canvasViewWrapper .titlesBorder, #aboutBlock .titlesBorder, #helpBlock .titlesBorder {
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	z-index: 10;
+}
+
+#canvasViewWrapper .titlesBorder {
+	width: 148px;	
+}
+
+#aboutBlock .titlesBorder {
+	width: 66px;	
+}
+
+#helpBlock .titlesBorder {
+	width: 56px;
+}
+
+
+#listSearchBlock .titlesBorder {
+	left: 114px;
+}
+
+.rangeBlock {
+	float: left;
+	padding: 9px 0 0 0;
+	vertical-align: top;
+}
+
+.conversion {
+	border-left: 1px solid #aaa;
+	width: 80px;
+	float: right;
+}
+
+.cm, .px {
+	padding: 0 10px 0 10px;
+}
+
+.cm {
+	border-right: 1px solid #aaa; 
+	display: inline-block;
+	width : 60px;
+}
+
+.px {
+	border-top: 1px solid #aaa;
+}
+
+#listSearchBlock {
+	float: left;
+	position: relative;
+}
+
+#listView {
+	overflow: auto;
+	width:330px;
+	padding: 10px 14px;
+}
+
+#listView:empty:after {
+	content: "No results found!";
+	font-size: 120%;
+	text-transform: uppercase;
+	margin: 0 0 0 60px;
+	padding: 4px;
+	color: #fff;
+	background: #4a1371;
+}
+
+#canvasViewBlock {
+	float: left;
+	/* padding-left: 18px; */
+	min-width: 200px;
+	
+	position: absolute;
+	left: 374px;
+	right: 20px;
+
+}
+
+#canvasViewWrapper {
+	position: relative;
+}
+
+#canvasView {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+#c {
+	position: relative;
+}
+
+.zoomViewDetails {
+	width: 20px;
+	height: 20px;
+}
+
+.addIcon {
+	font-size: 140%;
+	color: #444;
+	cursor: pointer;
+	display: none;
+}
+
+.objectEach {
+	padding: 8px;
+	float: left;
+	font-size: 90%;
+	text-align: center;
+	width:50%;
+	word-wrap: break-word;
+	min-height: 200px;
+}
+
+.objectEach:nth-of-type(2n+1) {
+	clear: both;
+}
+
+.objectEach:hover {
+	border-radius: 10px;
+}
+
+.objectEach:hover, .canvasIcon:hover {
+	background: #eee;
+}
+
+.objectEach:hover .viewDetails {
+	visibility: visible;
+}
+
+.objectTitle {
+	font-weight: bold;
+}
+
+.objectMetaData {
+	font-size: 90%;
+}
+
+.objectWrap {
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+.objectThumb {
+	cursor: move;
+}
+
+.logosProject .col49 {
+	padding: 20px 10px;
+}
+
+.logosProject p {
+	font-size: 70%;
+}
+
+.logoQml {
+	padding: 18px 0 0 0;
+}
+
+#canvasControls {
+	vertical-align: top;
+	float: right;
+	padding: 2px 10px;
+	font-size: 80%;
+}
+
+/* custom scrollbars for webkit */
+
+#rangeSlider {
+	float: left;
+	padding: 15px 10px 0 0;
+}
+
+#listView::-webkit-scrollbar, .scrollbarDiv::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+}
+ 
+#listView::-webkit-scrollbar-track, .scrollbarDiv::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+	background: white;
+}
+ 
+#listView::-webkit-scrollbar-thumb, .scrollbarDiv::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background: #eee;
+}
+
+#listView::-webkit-scrollbar-thumb, .scrollbarDiv::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+/* end custom scrollbars for webkit */
+
+/* browse main div page */
+
+#browseMainDiv {
+	margin: 40px 50px;
+}
+
+/* end browse main div page */
+
+/* search override */
+
+.select2-container {
+	width:150px !important;
+	z-index: 1000;
+}
+
+.select2-container .select2-choice {
+	background-color: #fff;
+	background-image: none;
+	border: none;
+}
+
+.select2-container .select2-choice div {
+	background: none;
+	border: none;
+}
+
+.select2-container .select2-choice span {	
+	font-size: 90%;
+}
+
+.select2-container-active .select2-choice, .select2-container-active .select2-choices {
+  border: 1px solid transparent;
+}
+
+.select2-no-results {
+	font-size: 90%;
+}
+
+/* end search override */
+
+
+/* swatches for body */
+
+#white #canvasViewWrapper {
+	background: #fff;
+}
+
+#whitegrid #canvasViewWrapper {
+	background: url('../../static/img/grid-white.jpg');
+}
+
+#black #canvasViewWrapper {
+	background: #000;
+}
+
+#blackgrid #canvasViewWrapper {
+	background: url('../../static/img/grid-black.jpg');
+}
+
+#grey #canvasViewWrapper {
+	background: #777;
+}
+
+#greygrid #canvasViewWrapper {
+	background: url('../../static/img/grid-grey.jpg');
+}
+/* end swatches for body */
+
+.notifyError {
+	float:right;
+	background-color:#000;
+	min-width:200px;
+	text-align:center;
+	color : #fff;
+	
+}
+.notify {
+	float:right;
+	background-color:yellow;
+	min-width:200px;
+	text-align:center;
+	font-weight : bold;
+}
+
+.validate {
+	width:100%;
+	padding-top:10px;
+	padding-bottom:30px;
+}
+
+.but1 {
+	width:70px;
+}
+
+@media only screen and (max-width: 950px) {
+	#logoBlock {
+		border: none;
+	}
+	
+	#logo {
+		letter-spacing: 20px;
+		width: auto;
+	}
+
+}

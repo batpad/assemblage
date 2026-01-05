@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+    {% block extra_css %}
+        <link rel="stylesheet" href="/static/css/select2.css" type="text/css" />
+    {% endblock %}
+
+    {% block extra_js %}
+    <script type="text/javascript" src="/static/js/select2.js"></script>
+    <script type="text/javascript" src="/static/js/util.js"></script>
+	<script type="text/javascript" src="/static/js/ui.js"></script>
+	<script type="text/javascript" src="/static/js/talk.js"></script>
+	<script type="text/javascript" src="/static/js/helper.js"></script>
+    <script type="text/javascript" src="/static/js/draw_stage.js"></script>
+	
+    <script type="text/javascript">
+		
+		$(document).ready(function(){
+			CHelp.init(document);
+		});
+	
+    </script>    
+	
+    {% endblock %}
+
+    {% block wrapper %}
+		<canvas id=canvas_rt width=700 height=500 style='position:absolute;left:0px;top:0px;border:1px solid #555;'>
+		</canvas>
+    <p id="logo">
+        <a href="">build</a> / <a href="">browse</a>
+    </p>
+    
+    <div id="editToolBlock">        
+            <div class="span4">
+                <!--<span>Search &amp; sort</span>-->
+                 <select multiple name="e9" id="e9" style="width:300px" class="populate"></select>
+            </div> <!-- please delete unnecessary CSS later -->
+    
+            <p id="zoomControl">
+				<img id="zoomPlus" src="/static/img/zoom-in.png" width="42" height="42" onClick='CDraw.clickRotateLeft();'>
+                <img id="zoomPlus" src="/static/img/zoom-in.png" width="42" height="42" onClick='CDraw.clickZoomIn();'>
+                <img id="zoomMinus" src="/static/img/zoom-out.png" width="42" height="42" onClick='CDraw.clickZoomOut();'>
+            </p>
+    
+    <div class="clear"></div>
+    
+    <br/>
+        <div id="listView">            
+       
+        </div> <!-- end list view -->
+		
+       	<canvas id=canvas_real width=700 height=500 style='border:1px solid #555;'>
+		</canvas>
+        
+        <div class="clear"></div>
+    
+    </div> <!-- end edit tool block -->
+    
+    {% endblock %}

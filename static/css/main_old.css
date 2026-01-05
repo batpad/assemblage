@@ -1,0 +1,372 @@
+* {
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	
+	box-sizing:border-box; 
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../../static/css/fonts/icomoon/icomoon.eot');
+	src:url('../../static/css/fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../../static/css/fonts/icomoon/icomoon.svg#icomoon') format('svg'),
+		url('../../static/css/fonts/icomoon/icomoon.woff') format('woff'),
+		url('../../static/css/fonts/icomoon/icomoon.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+html, body  { 
+	height:100%;
+	width:100%;
+}
+
+body {
+	background-color:#fff;
+	font-family:Helvetica, Arial, sans-serif;
+	color:#666;
+	font-size:16px;
+	line-height:1.4;
+}
+
+/* GLOBAL STYLES */
+
+
+.clear { 
+	clear:both;
+} 
+
+a {
+  text-decoration:none;
+  color: #498c8b;
+}
+
+a:hover, a:focus {
+	color: #666;
+}
+
+h6 {
+	font-size:110%;
+}
+
+h5 {
+	font-size:120%;
+}
+
+h4 {
+	font-size:130%;
+}
+
+h3 {
+	font-size:140%;
+}
+
+h2 {
+	font-size:150%;
+}
+
+h1 {
+	font-size:160%;
+}
+
+
+img {
+	max-width:100%;
+	height: auto;
+}
+
+input[type="submit"] {
+	cursor:pointer;
+}
+
+textarea {
+	vertical-align:top;
+}
+
+/* END GLOBAL STYLES */
+
+#wrapper {
+	width: 1230px; /*change later*/
+	/*min-width: 1200px;*/ /*please change later, we cannot have the layout break*/
+	margin: 0 auto;
+	margin-top: 30px;
+	padding: 0px 10px 20px 10px;
+	border-radius: 10px;
+}
+
+#logo {
+	font-family: Enriqueta, serif;
+	font-size: 200%;
+	letter-spacing: 50px;
+	color: #999;
+	text-align: center;
+/*	margin-top: 24px;
+	line-height: 0.2;
+	padding: 0px 8px 24px 8px;
+	border: 3px double #bbb;
+	border-top: none;
+	border-radius: 0 0 10px 10px; */
+
+	margin: 0 auto;
+	margin-top: -30px;
+	padding: 0px 8px 24px 8px;
+	background: white;
+	display: block;
+	width: 920px;	
+
+}/*karen please give min width due to letter spacing or use a monospace best*/
+
+#logo a {
+	color: #999;
+	margin-top: 20px;
+}
+
+#logo a span {
+	letter-spacing: 0;
+}
+
+#editToolBlock {
+	padding: 10px;
+}
+
+.span4 {
+	float: left;
+}
+
+.viewDetails, #canvasIconBlock {
+	font-family: 'icomoon';
+} 
+
+.viewDetails {
+	font-size: 130%;
+	color: inherit;
+	visibility: hidden;
+}
+
+#canvasIconBlock {
+	font-family: 'icomoon';
+	font-size: 180%;
+	margin-top: 20px;
+	float:right;
+	color: #888;
+}
+
+#canvasIconBlock p {
+	padding: 2px 4px;
+	cursor: pointer;
+/*	border:2px solid #e5e5e5;
+	background: rgb(244,246,247); /* Old browsers */
+/*background: -moz-linear-gradient(top, rgba(244,246,247,1) 0%, rgba(237,237,237,1) 51%, rgba(245,245,245,1) 100%); /* FF3.6+ */
+/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(244,246,247,1)), color-stop(51%,rgba(237,237,237,1)), color-stop(100%,rgba(245,245,245,1))); /* Chrome,Safari4+ */
+/*background: -webkit-linear-gradient(top, rgba(244,246,247,1) 0%,rgba(237,237,237,1) 51%,rgba(245,245,245,1) 100%); /* Chrome10+,Safari5.1+ */
+/*background: -o-linear-gradient(top, rgba(244,246,247,1) 0%,rgba(237,237,237,1) 51%,rgba(245,245,245,1) 100%); /* Opera 11.10+ */
+/*background: -ms-linear-gradient(top, rgba(244,246,247,1) 0%,rgba(237,237,237,1) 51%,rgba(245,245,245,1) 100%); /* IE10+ */
+/*background: linear-gradient(to bottom, rgba(244,246,247,1) 0%,rgba(237,237,237,1) 51%,rgba(245,245,245,1) 100%); /* W3C */
+	
+}
+
+#zoomPlus {
+	display: inline-block;
+	margin-right: 6px;
+}
+
+.locationList {
+	position: absolute;
+	left: 42%; /*change later*/
+	top:0px;
+	padding: 4px 8px;
+	display: block;
+	font-size: 140%;
+	background: #ccc;
+}
+
+.locationList:hover {
+}
+
+input[type="text"] {
+	border-radius: 6px;
+	padding: 2px 4px;
+}
+
+.titlesBorder {
+	font-size: 150%;
+	text-transform: lowercase;
+	background: white;
+	padding: 0 8px;
+	color: #888;
+}
+
+#databaseTitle {
+	position: absolute;
+	left: 152px;
+	top: 124px;
+}
+
+#canvasView .titlesBorder {
+	position: absolute;
+	top: -20px;
+	left: 38%; /*change later or center it properly using 0 auto;*/
+}
+
+.conversion {
+	font-size: 80%;
+	border-left: 2px solid #aaa;
+	width: 126px;
+	float: right;
+}
+
+.cm, .px {
+	padding: 0 8px 0 8px;
+}
+
+.cm {
+	border-right: 2px solid #aaa; 
+	display: inline-block;
+}
+
+.px {
+	border-top: 2px solid #aaa;
+}
+
+#wrapper, #listView, #canvasView, input[type="text"] {
+	border:3px double #bbb;
+}
+
+
+
+#listView, #canvasView {
+	border-radius: 10px;
+}
+
+#listView {
+	margin-right: 16px;
+	overflow: auto;
+	width:350px;
+	height: 620px; /*change later or make dynamic*/
+	padding: 20px 14px;
+	float: left;
+}
+
+#canvasView {
+	width:800px;
+	float: right;
+	position: relative;
+}
+
+.zoomViewDetails {
+	width: 20px;
+	height: 20px; /*actual height and width 24px change later.*/
+}
+
+.addIcon {
+	font-size: 140%;
+	color: #444;
+	cursor: pointer;
+	display: none;
+	/*remove this css for the whole div <later></later>*/
+}
+
+.objectEach {
+	padding: 8px;
+	float: left;
+	font-size: 90%;
+	text-align: center;
+	width:50%;
+	word-wrap: break-word;
+	min-height: 200px;
+}
+
+.objectEach:hover {
+	background: #eee;
+	border-radius: 10px;
+}
+
+.objectEach:hover .viewDetails {
+	visibility: visible;
+}
+
+.objectTitle {
+	font-weight: bold;
+}
+
+.objectMetaData {
+	font-size: 90%;
+}
+
+.objectThumb {
+	width:100px; height: 100px; /*remove later for convenience*/
+}
+
+#canvasControls {
+	vertical-align: top;
+	float: right;
+	font-weight: bold;
+	padding: 0 10px 10px 0;
+}
+
+/*.objectThumb:hover {
+	background: #f5f5f5;
+}*/
+
+/* custom scrollbars for webkit */
+
+#listView::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;/*why this dont work*/
+}
+ 
+#listView::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+ 
+#listView::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background: #eee;
+    border-radius: 10px;
+}
+
+
+/* end custom scrollbars for webkit */
+
+/* browse main div page */
+
+#browseMainDiv {
+	margin: 40px 50px;
+}
+
+/* end browse main div page */
+
+.filterObjects {
+	font-size: 80%;
+	padding: 10px 0 0 10px;
+	float: left;
+}
+
+.filterObjects label {
+	padding-left: 2px;
+}
+
+input[type="checkbox"]:before {
+	content: ""; display:
+	inline-block;
+	width: 10px;
+	height: 10px;
+	background: #fff;
+	border: 3px double #aaa;
+}
+
+input[type="checkbox"]:checked:before{
+	background: #ddd;
+	border: 3px solid transparent;
+}
+
+/* search override */
+
+.select2-container {
+	width:250px !important;
+	z-index: 1000; /*given this to cover the database text*/
+}
+
+/* end search override */

@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+
+{% block extra_title %}{{ item.title }}{% endblock %}
+
+{% block extra_css %}
+
+	<!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.css" /> -->
+	<!--[if lte IE 8]><link rel="stylesheet " href="../dist/leaflet.ie.css" /><![endif]-->
+
+	<style type="text/css">
+		
+		#wrapper {	
+			height: 100%;
+		}
+		
+		#mapMetaBlock {
+			height: 100%;
+			width:100%;
+		}
+		
+		#map, .metaDataObjectPage {
+			padding: 30px;
+			float:left;
+			margin: 30px 0 0 0;
+		}
+		
+		.metaDataObjectPage {
+			width:40%;
+			padding-top: 0;
+			padding-left: 50px;
+		}
+		
+		#map {
+			width: 60%;
+			height: 80%;
+		}
+		
+        #itemImage {
+            max-width: none;
+        }
+
+        #imgWrapper {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+		@media only screen and (max-width: 650px) {
+			#map, .metaDataObjectPage {
+				float: none;
+				width: 100%;
+				padding: 10px;
+			}
+
+			
+		}
+    
+	</style>
+
+{% endblock %}
+	
+
+{% block extra_js %}
+	<!-- <script src="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.js"></script> -->
+	<script type="text/javascript" src="/static/js/item_detail.js"></script>
+   <script> 
+    $(function() {
+	//	var map = L.map('map').setView([51.500, -0.100], 15);
+
+
+/* Instead of a tile layer, use a bitmap image */
+//		var imageUrl = 'http://vintageprintable.swivelchairmedia.com/wp-content/uploads/2011/04/Animal-Animal-acting-human-kittens-playing-piano-1024x791.jpg';
+      //  var imageUrl = '{{ item.image.url }}';
+	//	var imageBounds = [[51.490, -0.122], [51.510, -0.078]];
+
+	//	L.imageOverlay(imageUrl, imageBounds).addTo(map);
+    });
+	</script>
+
+{% endblock %}
+
+
+	   {% block wrapper %}
+	   
+	<div id="mapMetaBlock">   
+
+	<div id="map">
+        <div id="imgWrapper">
+            <img src="" id="itemImage" /> <br />
+        </div>
+        <div id="formWrapper">
+            <form id="changeImageForm">
+            <input type="hidden" id="itemId" value="{{ item.id }}" />
+            Size: <input type="range" id="imageSize" class="range" min="100" max="2200" value="600" step="50" /> <span class="value"></span><br />
+            Angle: <input type="range" id="imageRotation" class="range" min="0" max="360" value="0" /><span class="value"></span><br />
+            <button id="submitForm">Update image</button>
+            </form>
+        </div>
+    </div>
+
+    	
+	<div class="metaDataObjectPage">
+		<h4><strong>{{ item.title }}</strong></h4>
+		<br>
+        {% if item.width %}
+		<p><strong>Width: </strong>{{ item.width }}cm</p>
+		<br>
+        {% endif %}
+
+        {% if item.market %}
+		<p><strong>Market: </strong>{{ item.market }}</p>
+		<br>
+        {% endif %}
+
+        {% if item.description %}
+		<p><strong>Description: </strong> {{ item.description|linebreaksbr }}</p>
+		<br>
+        {% endif %}
+
+        {% if item.utility %}
+		<p><strong>Utility: </strong> {{ item.utility|linebreaksbr }}</p>
+		<br>
+        {% endif %}
+
+        {% if item.utility_url %}
+		<p><a href="{{ item.utility_url }}">{{ item.utility_url }}</a></p>
+		<br>
+        {% endif %}
+
+        {% if item.significance %}
+		<p><strong>Significance: </strong> {{ item.significance|linebreaksbr }}</p>
+		<br>
+        {% endif %}
+
+        {% if item.image_courtesy %}
+		<p><strong>Image courtesy: </strong> {{ item.image_courtesy }}</p>
+        {% endif %}		
+
+        <br />
+        {% if item.parent_items.count > 0 %}
+        <p><strong>Things used to make this assemblage:</strong><br />
+            <ul>
+            {% for p in item.parent_items.all %}
+              <li><a href="/item/{{ p.id }}">{{ p.title }}</a></li>
+            {% endfor %}
+        </p>
+        <br />
+        {% endif %}
+
+        {% if item.child_items.count > 0 %}
+        <p><strong>Assemblages made using this:</strong><br />
+            <ul>
+            {% for c in item.child_items.all %}
+              <li><a href="/item/{{ c.id }}">{{ c.title }}</a></li>
+            {% endfor %}
+        </p>
+        <br />
+        {% endif %}
+
+        {% if item.is_assemblage %} 
+        <p><strong>Created by:</strong> {{ item.user.username }}</p>
+        {% endif %}
+
+        {% if can_edit %}
+        <p><a href="/item/{{ item.slug }}/edit">Edit</a></p>
+        {% endif %}
+	</div> <!-- end metadata object page -->
+	
+	<div class="clear"></div>
+
+</div> <!-- end map meta block -->
+    {% endblock %}
+

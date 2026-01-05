@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+
+<title>Build / Browse: {% block extra_title %}{% endblock %}</title>
+
+<meta name="keywords" content="PLACE KEYWORDS HERE – they should appear in site content also">
+<meta name="title" content="CHANGE AS PER TITLE OF PAGE prefixed with company name"> 
+<meta name="description" content="ADD DETAILS HERE">
+
+<meta http-equiv="X-UA-Compatible" content="chrome=1"> <!-- chrome frame -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- for multiple viewport sizes -->
+
+{% block extra_meta %}
+
+{% endblock %}
+
+<link rel="shortcut icon" href="/static/img/favicon.ico" /> <!--favicon-->
+
+<!--<link href='http://fonts.googleapis.com/css?family=Enriqueta' rel='stylesheet' type='text/css'>-->
+
+<link rel="stylesheet" href="/static/css/reset.css" type="text/css" />
+
+{% block extra_css %}
+
+{% endblock %}
+
+<link rel="stylesheet" href="/static/css/main.css" type="text/css" />
+<link rel="stylesheet" href="/static/css/nouislider.css" type="text/css" />
+
+
+
+<!--[if lt IE 9]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+
+
+<script type="text/javascript" src="/static/js/jquery-1.8.1.min.js"></script>
+
+<script type="text/javascript" src="/static/js/nouislider.min.js"></script>
+
+<script src="/static/js/base.js"></script>
+
+{% block extra_js %}
+
+{% endblock %}
+
+</head>
+
+<body>
+
+<noscript><strong>You need Javascript to run this page</strong></noscript>
+
+
+
+<div id="wrapper">
+    {% block wrapper %}
+    {% endblock %}
+
+</div> <!-- end wrapper -->
+  
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+{% extends 'base_dev.html' %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/lightbox.css">
+
+<style>
+#logo a:nth-of-type(2) {
+	color: #999;
+}
+
+#logo a:first-child, #logo a:last-child {
+	color: #e5e5e5;
+}
+
+#logo a:first-child:hover, #logo a:last-child:hover {
+	color: #a952e7;
+}
+
+
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/lightbox.js"></script>
+
+<script>
+    $(document).ready(function(){
+		$('.rboxOpen').rbox();
+	});
+</script>
+
+{% endblock %}
+
+{% block wrapper %}
+<div id="logoBlock">    
+	<p id="logo">
+		<a href="/app" class="logoHover">build</a> <a href="">/</a> <a href="http://blog.buildbrowse.com" class="logoHover" target="_blank">brows<span>e</span></a>
+	</p>
+</div>
+
+<div id="editToolBlock">
+	<img src="static/img/img-home.jpg" alt="" class="rounded imgHomeMain">
+	<div class="menuWrapBlock">
+		<div id="helpBlock" class="menuBlock">
+			<p class="titlesBorder">Menu</p>
+			<ul class="listMenu">
+				<li><span class="rboxOpen" data-rbox-type="element" data-rbox-element="#aboutProject">about the project</span></li>
+				<li><span class="rboxOpen" data-rbox-type="element" data-rbox-element="#aboutPpl">about the people</span></li>
+				<li><span class="rboxOpen" data-rbox-type="ajax" data-rbox-ajax="/help">how to play</span></li>
+				<li><a href="/app">play</a></li>
+			</ul>
+		</div> <!-- end help block  -->
+
+		<div id="aboutBlock" class="menuBlock">
+			<p class="titlesBorder">About</p>
+			<div>
+				<p>This project will make an interactive digital game centered on creating a new ethics of recycling the detritus of historical objects scattered across Mumbai’s various bazaars.
+				</p>
+				<a href=""><span class="rboxOpen" data-rbox-type="element" data-rbox-element="#aboutProject">Read More...</span></a>
+			</div>
+		</div> <!-- end about block  -->
+	</div> <!-- /menuWrapBlock -->
+</div> <!-- end edit tool block  -->
+
+<div class="rbox_overlay">
+	<div class="rbox_lightBoxBlock">
+		<div class="rbox_lightBox">			
+			<div class="rbox_lightBoxContent">
+			</div>
+			<a href="" class="closeLightBox">X</a>
+			<a href="" class="nextLightBox">&#8594;</a>
+			<a href="" class="prevLightBox">&#8592;</a>
+		</div>
+	</div>
+</div>
+
+<div id="aboutProject" class="none">
+	<h3 class="lboxHeading">About the Project</h3>
+	<p><em>A Haptic Archive of Material and Symbolic Flows</em></p>
+	<p>Recycled Ecologies is a transnational project that brings together psychogeographies of open air markets in postcolonial cities of the world. It is a start of a visual archive of objects found in open air markets testament to the circulation of its material flows, images, habits, practices of barter and of alternative currencies, and cash.</p>
+	<br>
+	<p>Initially our focus was on the Null-Chor Bazaar areas in ‘C' Ward, where a vibrant market in memorabilia, curios, and random components of past media ecologies continues to attract people from all walks of life across Mumbai, and for the last ten years increasingly from across the seas… Across the seas…to London then, where old colonial tools and toys, popular culture knick knacks, ‘stressed antiques’, and everyday household goods get a polish up or a weathering down to match the nostalgia or necessity of the highest bidder.</p>
+	<br>
+	<p>Through a Leverhulme Artist in Residency, we were able to pursue a practice of walking through the bazaars of London: Whitechapel, Portobello, North Greenwich, Walthamstow, Ridely Road, Columbia Road, Elephant & Castle, Kingsland Waste, Brick Lane to name a few.</p>
+	<br>
+	<p><em>Build/Browse is the online interface of the 'Recycled Ecologies' project</em> that allows an element of play for the user to interact, explore, and develop an ecological, aesthetic, and political approach to bazaars using objects extracted from their habitual surroundings.</p>
+	<br>
+	<p>This project aspires to create a new imagination around the potential energies of these objects by creating an interactive digital platform in which objects are twisted and turned to meet the vectors of other objects, and so form new combinations of functions, form, and matter.</p>
+	<br><br>
+	<p>
+	<strong>Build</strong>
+	<br>
+	The database housed in this drop down menu of objects will be artifacts of 'reduced' importance or those of a second-hand nature that will function as data .This data will contribute towards creating a new ethics of recycling the detritus of said historical objects scattered across various bazaars in London, and objects found/created in Mumbai’s Chor Bazaar by the resident merchants and artisans there or disposed off by the general populace.
+	</p>
+	<br>
+	<p>Participants on the platform will be able to ‘recycle’ and ‘recombine’ these objects by creating new functional forms and potential histories by connecting two or more objects on the platform .Some of the memorabilia of these local ecologies globally networked have been accessed on site, bought, viewed, documented, experienced or perceived based on the uniqueness of the "production" or "history" of the object and the communities through which they circulate. <br>
+	The platform will allow people to interact virtually with this history of material ecologies through the objects depicted in two dimensional format by the artist. 
+	</p>
+	<br><br>
+	<p>
+		<strong>Browse</strong><br>
+		In the form of a blog, "browse" is the ongoing documentation of the project available online including audio-visual media, photographic documentation, drawings, sound, text and processes encountered and initiated before, during and after Ranjit Kandalgaonkar’s Leverhulme London Artist in Residency at the School for Business and Management at Queen Mary, University of London. These include site visits to Chor bazaar Mumbai, conversations with stall owners, visual documentation-diagramming of Chor bazaar, visiting the major open air markets in London, and building a comparative framework to engage with the parallels between market practices in the two cities and its associated material flows. This was the broad framework attempted as "field work" during the residency.
+	</p>
+	<br>
+	<p>What are the values and meanings assigned to the assemblages created by the game users of Build?  If relations of value in the bazaar are disrupted and reconnected through the de-contextualization of the interface, can a new set of interconnections give rise to new value? Does this repurposing alter the system of meanings that seem to stabilize these image-objects, can new sensory motor circuits and so new meanings emerge through this process? This platform hopefully offers that visually, in a democratic way, taking it out of the rarefied realm of the solitary artist creating assemblages. <br>
+	As one of our interlocutors (Valentina Desideri) put it, "perhaps the objects become the signs of another possible grammar, a visual one, but not only…a new language?! Maybe soon they will be able to tell their own story…"</p>
+	<div class="logosProject">
+		<div class="col49">
+			<a href="http://www.leverhulme.ac.uk" target="_blank"><img src="/static/img/logo-leverhulme.jpg" alt="logo-leverhulme"></a>
+			<p>Ranjit Kandalgaonkar was awarded an Artist in Residence Grant in November 2011 at the School of Business and Management, Queen Mary, University of London for 5 months.</p>
+		</div>
+		<div class="col49">
+			<a href="http://www.qmul.ac.uk" target="_blank"><img src="/static/img/logo-qml.png" alt="logo-queen mary university of london" class="floatRight logoQml"></a>
+			<div class="clear"></div>
+			<p>The build/browse website was realized by a grant provided by &copy; Centre for the Study of Migration, Queen Mary,University Of London.</p>
+		</div>
+		<div class="clear"></div>
+	</div> <!-- /logosProject -->
+</div> <!-- /aboutProject -->
+
+<div id="aboutPpl" class="none">
+	<h3 class="lboxHeading">About the People</h3>
+	<div>
+		<p><strong>Amit Rai</strong></p>
+		<p>Dr Amit Rai is the author of Rule of Sympathy: Race, Sentiment, and Power (Palgrave: 2002). He has written on Indian masculinity in film, anthropologies of monstrosity, sympathetic discursive relations, and the swerves of media (clinamedia). His study of new media in India, entitled Untimely Bollywood: Globalization and India’s New Media Assemblage was published by Duke University Press in May of 2009. His blog on the history of media assemblages and the politics of perception can be found <a href="http://mediaecologiesresonate.wordpress.com" target="_blank">here</a>. He was recently in India on a Fulbright Senior Research Fellowship diagramming the perceptual mutations involved in gender identity and mobile phone networks in urban areas.</p>
+	</div>
+	<br>
+	<div>
+		<p><strong>Sadhvi Dar</strong></p>
+		<p>Sadhvi Dar holds a Diploma in Art and Design, a BSc in Psychology and a PhD in Management Studies. Her research interests include NGOs, international development (focus on India) and third sector organizations. Theoretically, Sadhvi finds inspiration in postcolonial and psychoanalytic perspectives, however, also has an interest in organizational theory more broadly. Sadhvi has expertise in ethnography, discourse / narrative approaches, cross-cultural analysis and interviewing. She has co-edited a book with Professor Bill Cooke entitled, The New Development Management: Critiquing the Dual Modernization, which looks at the trajectory of development as a modern idea, and about the continuing encroachment of managerialism into social life. Her recent work has critiqued the role of reporting practices in NGOs working with non-literate communities.Sadhvi teaches Corporate Social Responsibility to undergraduates and Qualitative Research Methods to postgraduates.</p>
+	</div>
+	<br>
+	<div>
+		<p><strong>Ranjit Kandalgaonkar</strong></p>
+		<p>Ranjit Kandalgaonkar is a visual artist and painter based in Mumbai.</p>
+		<p>His practice uses the different capacities of media technologies to express the convergence of more than one way of seeing. Through experiments in painting, photography, animation and video, the viewer/audience/observer is confronted with a new mode of appraising and processing (perceiving) a particular work. His work can be seen <a href="http://cityinflux.com" target="_blank">here</a>. His city-based research work includes a series of documentation style paintings on housing conditions within the Null Bazaar precinct of Mumbai and an extensive ongoing graphic novella on the history of philanthropy in 19th century colonial Bombay for which he has been awarded the Majlis Fellowship(2007) and the UDRI Research Fellowship (2009-2010) respectively. He was Artist-in-residence (2012) at Queen Mary, University of London,awarded by the Leverhulme trust for field work conducted for the project showcased on this website.</p>
+	</div>
+	<br>
+	<div>
+		<p><strong>Programming and Design</strong></p>
+		<p>Jamie Taleyarkhan</p>
+		<p>Shrikant Patil</p>
+		<p>Sanjay Bhangar</p>
+		<p>Karen Menezes</p>
+	</div>
+</div> <!-- /aboutPpl  -->
+{% endblock %}

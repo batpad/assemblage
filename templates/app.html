@@ -1,0 +1,457 @@
+{% extends 'base_dev.html' %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/select2.css" type="text/css" />
+<link rel="stylesheet" href="/static/css/lightbox.css" type="text/css" />
+
+<style>
+	body {
+		min-width: 600px;
+	}
+	
+	#logo a:first-child {
+		color: #999;
+	}
+
+	#logo a:last-child, #logo a:nth-of-type(2) {
+		color: #e5e5e5;
+	}
+	
+	#logo a:last-child:hover, #logo a:nth-of-type(2):hover {
+		color: #a952e7;
+	}
+</style>
+{% endblock %}
+
+    {% block extra_js %} 
+   
+    <script type="text/javascript" src="/static/js/select2.js"></script>
+    <script type="text/javascript" src="/static/js/lightbox.js"></script>
+	<script type="text/javascript" src="/static/js/search.js"></script>
+
+	<!-- custom js files added -->
+	<script type="text/javascript" src="static/js/new/html5slider.js" ></script>
+	<script type="text/javascript" src="/static/js/new/jquery-ui-1.8.23.custom.min.js"></script>
+	<!-- <script type ="text/javascript" src="https://raw.github.com/kangax/fabric.js/master/dist/all.js"></script> -->
+	<script type ="text/javascript" src="/static/js/new/all.js"></script>
+	
+	<script type="text/javascript" src="/static/js/new/helper.js"></script>
+	<script type="text/javascript" src="/static/js/new/items.js"></script>
+	<script type="text/javascript" src="/static/js/new/html.js"></script> 
+	<script type="text/javascript" src="/static/js/new/fabric_helper.js"></script>
+	<script type="text/javascript" src="/static/js/new/state.js"></script> 
+	<script type="text/javascript" src="/static/js/new/extra_func.js"></script> 
+	<script type="text/javascript" src="/static/js/new/util.js"></script> 
+	<script type="text/javascript" src="/static/js/new/ui.js"></script> 
+	<script type="text/javascript" src="/static/js/new/pan_canvas.js"></script> 
+	<!-- http://jquery.malsup.com/block/#demos -->
+	<script type="text/javascript" src="/static/js/new/jquery.blockUI.js"></script>  
+	<script type="text/javascript" src="/static/js/new/jquery.hotkeys.js"></script>  
+	<script type="text/javascript" src="/static/js/new/keyboard_shortcuts.js"></script>  
+	<script type="text/javascript" src="/static/js/new/validate.js"></script>  
+	<!-- strange behaviour of fabric demo http://www.screenr.com/4r47 , https://github.com/kangax/fabric.js/issues/418  -->
+    <script>
+    {% if app %}
+	var APP = {
+        'id': {{ app.id }},
+        'title': "{{ app.name }}",
+        'fabric': {{ app.data|safe }}
+    };
+	
+	{% endif %}
+	
+    {% if user.is_authenticated %}
+    var USER_ID = {{ user.id }};
+    var USER_NAME = "{{ user.username }}";
+    {% endif %}
+
+    $(document).ready(function() {
+	    $('.rboxOpen').rbox();
+	});
+    </script>
+	
+	
+    {% endblock %}
+
+	{% block body_onload %} onload="CHelp.init();" {% endblock %}
+
+    {% block wrapper %}
+
+    <div class="rbox_overlay">
+        <div class="rbox_lightBoxBlock">
+            <div class="rbox_lightBox">
+                <div class="rbox_lightBoxContent">
+                </div>
+                <a href="" class="closeLightBox">X</a>
+                <a href="" class="nextLightBox">&#8594;</a>
+                <a href="" class="prevLightBox">&#8592;</a>
+            </div>
+        </div>
+    </div>
+
+	<div id="loginForms">
+		<span class="signupLink" onclick="CHelp.showSignUpForm(event);" >Sign-Up</span>
+		/
+		<span class="signInLink" onclick="CHelp.showSignInForm(event);" >Sign-In</span>
+	</div>
+	
+	<div id="appNameView" style="display:none;">
+		<span>Currently viewing: <span class="uppercase">&#160;</span></span>
+	</div>
+	
+	<div id="contactInfo">
+		<span class="contactLink">Contact</span>
+		<span class="none contactLinkDetails">: <a href="mailto:ranjit@someemail.com">ranjit@someemail.com</a> / <a href="mailto:amit@someemail.com">amit@someemail.com</a></span> |
+		<span><a href="/home">Home</a></span> |
+		<span class="rboxOpen" data-rbox-type="ajax" data-rbox-ajax="/help">Help</span> | 
+		<span class="rboxOpen" data-rbox-type="element" data-rbox-element="#keyboardShortcuts">Keyboard Shortcuts</span>
+	</div> <!-- /contactInfo -->
+	
+	<div id="logoBlock">    
+	    <p id="logo">
+	        <a href="/app">build</a> <a href="/home">/</a> <a href="http://blog.buildbrowse.com" target="_blank">brows<span>e</span></a>
+	    </p>
+    </div>
+    
+	<div id="exportForm" class="formDialog">
+		<form>
+			<h4>Export as New Item</h4>
+			<label for="itemName">Item Name</label><input type='text' id='itemName'/>
+			<div class="clear"></div>
+			<label for=""></label>
+			<button onclick="CVal.validateItemTitle(event)" class="buttonAppStyle">Ok</button>
+			<div class="clear"></div>
+			<div id="errorDivItem" class="formError"></div>
+	</div>
+	
+    <div id="editToolBlock">
+         <div id="listSearchBlock">   
+				<p class="titlesBorder">Database</p>
+            <div id="searchFilterBlock">
+                <input type="hidden" id="page" value="1" />
+				<div id="selectFilter">
+					<select name="objectType" id="objectType">
+                        <option value="">All</option>
+						<option value="objects">Objects</option>
+						<option value="fragments">Fragments</option>
+						<option value="assemblages">Assemblages</option>
+                        {% if user.is_authenticated %}
+						<option value="mine">My Objects</option>
+                        {% endif %}
+					</select>	
+				</div> <!-- end select filter  -->
+				
+                <div id="searchFilter">    
+                    <div class="span4">
+                        
+                        <select id="searchList" name="searchList">
+                            <option value=""></option>
+                            {% for t in tags %}
+                            <option value="{{ t.name }}">{{ t.name }}</option>
+                            {% endfor %}
+                        </select>                         
+                    </div>
+        
+                </div> <!-- end search filter -->
+				
+				<p class="buttonAppStyle" id="searchLink">More</p>
+				
+				
+				<div id="searchAdvanced" class="formDialog"> 
+					<h4>Advanced Search</h4>
+					<form action="">
+						<label for="q">Search</label>
+						<input type="text" id="q" placeholder="Full Text Search">
+						<div class="clear"></div>
+						<p>in</p>	
+						<label for="q_field">Content</label>	
+						<select name="q_field" id="q_field">
+							<option value="">All Text</option>
+							<option value="description">Description</option>
+							<option value="utility">Utility</option>
+							<option value="significance">Significance</option>
+							<option value="image_courtesy">Contributor</option>
+							<option value="new_imaginations">New Imaginations</option>
+						</select>
+						<div class="clear"></div>
+						<br>
+						<p>filter by</p>	
+						<label for="city">Cities</label>
+						<select name="city" id="city">
+							<option value="">All</option>
+                            {% for city in cities %}
+							<option value="{{ city.0 }}">{{ city.1 }}</option>
+                            {% endfor %}
+						</select>
+						<div class="clear"></div>
+						<label for="market">Markets</label>
+						<select name="market" id="market">
+							<option value="">All</option>
+                            {% for market in markets %}
+							<option value="{{ market.id }}">{{ market.name }}</option>
+                            {% endfor %}
+						</select>
+						<div class="clear"></div>
+						<br>
+						<p>sort by</p>
+						<label for="sort">Fields</label>
+						<select name="sort" id="sort">
+							<option value="-id">Newest</option>
+							<option value="id">Oldest</option>
+							<option value="title">A-Z</option>
+							<option value="-title">Z-A</option>
+						</select>
+						<div class="clear"></div>
+						<br>
+						<label for=""></label>
+						<input type="submit" id="submitAdvanced" value="Submit" class="buttonAppStyle">
+						<div class="clear"></div>	
+					</form>	
+				</div> 
+				
+				<div class="clear"></div>
+
+            </div> <!-- end search filter block -->
+
+        <div id="listView" class="scrollbarDiv">
+            <div class="loadingDiv">Loading...</div> 
+        </div> <!-- end list view -->
+	</div><!-- end list search block -->
+	
+
+	<div id="canvasViewBlock">
+		<div id="canvasViewWrapper">
+			<div id="canvasIconInner">
+				<p class="canvasIcon" onclick="CHelp.undoShow();">6<span class="tooltip">Undo (z)</span></p>
+				<p class="canvasIcon" onclick="CHelp.redoShow();">5<span class="tooltip">Redo (y)</span></p>               
+				<p class="canvasIcon" onclick="CHelp.addAsGroup();">*<span class="tooltip">Join (j)</span></p>
+				<p class="canvasIcon" onclick="CHelp.bringToFront();"><img src="/static/img/stback.png" alt="send-tp-back" class="iconsBackFront"><span class="tooltip">Bring-to-front (f)</span></p>
+				<p class="canvasIcon" onclick="CHelp.sendToBack();"><img src="/static/img/stfront.png" alt="bring-to-front" class="iconsBackFront"><span class="tooltip">Send-to-back (b)</span></p>
+				<p class="canvasIcon" onclick="CFab.scaleWithKeyboardShortcut(true);">(<span class="tooltip">Scale-up (q)</span></p>
+				<p class="canvasIcon" onclick="CFab.scaleWithKeyboardShortcut();">'<span class="tooltip">Scale-down (w)</span></p>
+				<p class="canvasIcon" onclick="CHelp.deleteObjects();">3<span class="tooltip">Delete (delete)</span></p>
+				<p class="canvasIcon" onclick="CPan.toggleActivate();" ><img src="/static/img/pan-hand.png" width="16" height="16" alt="pan" id="panIcon"><span class="tooltip">Pan (p - activate, esc - deactivate) </span></p>
+				
+			</div> <!-- end canvas icon inner  -->
+
+            <p class="titlesBorder">Canvas Editor</p>
+			
+ 			<div id="canvasView" class="scrollbarDiv">
+				<canvas id="c"></canvas>
+			</div><!-- end canvas view -->
+	     </div><!-- end canvas view wrapper -->
+
+	    <div id="canvasIconOptions">
+	
+		   <div id="canvasControls">
+			   <p class="rangeBlock">Scale: <input type="range" id="scale" class="range" min="0.1" max="1" value="0.2" step="0.05"/></p>
+			   
+			   <div class="conversion">
+				   <p class="cm"> cm</p>
+				   <p class="px">&#160;</p>
+			   </div>
+		   </div> <!-- end canvas controls  -->
+  
+        <div id="canvasIconBlock">
+		   <p class="canvasIcon" onclick="CHelp.newApp();">"<span class="tooltip">New (alt + n)</span></p>
+		   <p class="canvasIcon" onclick="CHelp.showAppList();">2<span class="tooltip">Open (alt + o)</span></p>
+		   <p class="canvasIcon" onclick="CHelp.saveApp();">#<span class="tooltip">Save a draft (alt + s)</span></p>
+		   <p class="canvasIcon" onclick="CHelp.saveApp(true);" >$<span class="tooltip">Save a copy (alt + a</span></p>
+		   <p class="canvasIcon" onclick="CHelp.exportAsObject();">4<span class="tooltip">Export to database (alt + e)</span></p>
+		   <p class="canvasIcon" onclick="CHelp.print();" >.<span class="tooltip">Print (alt + r)</span></p>
+        </div>
+
+		<div class="selectCustom">
+			<select name="" id="selectSwatches">
+				<option value="whitegrid">White + Grid</option>
+				<option value="white">White</option>
+				<option value="blackgrid">Black + Grid</option>
+				<option value="black">Black</option>
+				<option value="greygrid">Grey + Grid</option>
+				<option value="grey">Grey</option>
+			</select>
+		</div> <!-- end select custom  -->
+
+                                 
+        </div> <!-- end canvas icon options -->
+	</div> <!-- end canvas view block  -->
+	    
+        
+     <div class="clear"></div>
+ 
+    </div> <!-- end edit tool block -->
+    
+    <div class="clear"></div>
+	
+	
+	<div id="load-app" class="formDialog">
+		<h4>Please select an App to load</h4>
+			<div class="scrollbarDiv">
+				<div id='appView1'></div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div id="signUp" class="formDialog">
+		<h4>Sign-Up</h4>
+		<form name='singUpForm'>
+			<label>Username</label>
+			<input type="text" name="username">
+			<span class="formRequired">&#160;*</span>
+			<div class="clear"></div>
+			<br>
+			<label>Password</label>
+			<input type="password" name="password">
+			<span class="formRequired">&#160;*</span>
+			<div class="clear"></div>
+			<br>
+			<label>Retype Password</label>
+			<input type="password" name="password2">
+			<span class="formRequired">&#160;*</span>
+			<div class="clear"></div>
+			<br>
+			<label>Email Id</label>
+			<input type="text" name="email">
+			<span class="formRequired">&#160;*</span>
+			<div class="clear"></div>
+			<br>
+			<label for=""></label>
+			<button onclick="CVal.validateSignUpForm(this.form,event);" class="buttonAppStyle">Submit</button>
+			<div class="clear"></div>
+			<div id="signUpError" class="formError"></div>
+		</form>	
+	</div> <!-- end sign up form  -->
+	
+	<div id="signIn" class="formDialog">
+			<h4>Sign-In</h4>
+			<form name='signInForm'>
+				<label>Username</label>
+				<input type="text" name="username">
+				<div class="clear"></div>	
+				<br>
+				<label>Password</label>
+				<input type="password" name="password">
+				<div class="clear"></div>	
+				<br>
+				<label></label>
+				<button onclick="CVal.validateSignInForm(this.form , event);" class="buttonAppStyle">Sign In </button>
+				<div class="clear"></div>
+                <div class="small">
+                    <a target="_blank" href="{% url django.contrib.auth.views.password_reset %}">Forgot your password?</a>
+                </div>
+				<div id="signInError" class="formError"></div>
+			</form>	
+	</div><!-- signIn -ends -->
+	<div id="newAppForm" class="formDialog formAutoWidth">
+		<div>
+			<h4>Your current app is not saved. <br>Would you like to save it?</h4>
+			<div class="center">
+				<button onclick="CHelp.saveApp();" class="buttonAppStyle">Save</button>
+				
+				<button onclick=" document.location.reload();" class="buttonAppStyle">Don't save</button>
+				
+				<button onclick="CHtml.unBlockScreen();" class="buttonAppStyle">Cancel</button>
+				
+			</div>
+		</div>
+	</div> <!-- newAppForm -ends -->
+	<div id="nameForm" class="formDialog">
+		<h4>Save your edited canvas</h4>
+		<label for="appName">Name of Build</label>
+		<input type="text" id="appName"/>
+		<div class="clear"></div>
+		<div id="#buttons">
+			<label></label><button onclick="CVal.validateAppTitle(event);" class="buttonAppStyle">Ok</button>
+			<div class="clear"></div>
+			<label></label><button onclick="CHtml.unBlockScreen(event);"  class="buttonAppStyle">Cancel</button>
+		</div>
+		<div class="clear"></div>
+		<div id="errorDiv" class="formError" ></div>
+	</div> <!-- nameForm -ends-->
+	</div>
+	</div> <!-- closing the final div -->
+	
+	<div id="keyboardShortcuts" class="none">
+		<h3 class="lboxHeading">Keyboard Shortcuts</h3>
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">6</span><strong>Undo: </strong></p>
+			<p>Keyboard shortcut: z</p>
+		</div>
+
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">5</span><strong>Redo: </strong></p>
+			<p>Keyboard shortcut: y</p>
+		</div>
+		
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">*</span><strong>Join: </strong></p>
+			<p>Keyboard shortcut: j</p>
+		</div>
+	   
+		<div class="keyboardBlock">
+			<p><img src="/static/img/stback.png" alt="send-to-back" width="21" height="21" class="keyboardImg"><strong>Bring to front: </strong></p>
+			<p>Keyboard shortcut: f</p>
+		</div>
+	
+		<div class="keyboardBlock">
+			<p><img src="/static/img/stfront.png" alt="send-to-back" width="21" height="21" class="keyboardImg"><strong>Send to back: </strong></p>
+			<p>Keyboard shortcut: b</p>
+		</div>
+	
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">(</span><strong>Scale-up: </strong></p>
+			<p>Keyboard shortcut: q</p>
+		</div>
+	 
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">'</span><strong>Scale-down: </strong></p>
+			<p>Keyboard shortcut: w</p>
+		</div>
+			 
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">3</span><strong>Delete: </strong></p>
+			<p>Keyboard shortcut: delete</p>
+		</div>
+	
+		<div class="keyboardBlock">
+			<p><img src="/static/img/pan-hand.png" alt="pan" width="21" height="21" class="keyboardImg"><strong>Pan: </strong></p>
+			<p>Keyboard shortcut: p to activate and escape to deactivate</p>
+		</div>
+	 
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">"</span><strong>New: </strong></p>
+			<p>Keyboard shortcut: alt + n</p>
+		</div>
+		
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">2</span><strong>Open: </strong></p>
+			<p>Keyboard shortcut: alt + o</p>
+		</div>
+	
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">#</span><strong>Save: </strong></p>
+			<p>Keyboard shortcut: alt + s</p>
+		</div>
+		
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">$</span><strong>Save as: </strong></p>
+			<p>Keyboard shortcut: alt + s</p>
+		</div>
+	
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">4</span><strong>Export: </strong></p>
+			<p>Keyboard shortcut: alt + e</p>
+		</div>
+		
+		<div class="keyboardBlock">
+			<p><span class="keyboardIcon">.</span><strong>Print: </strong></p>
+			<p>Keyboard shortcut: alt + r</p>
+		</div>
+	
+	</div> <!-- /keyboardShortcuts -->
+	
+
+	
+    {% endblock %}

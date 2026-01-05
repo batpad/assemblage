@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+
+
+    {% block extra_css %}
+        <link rel="stylesheet" href="/static/css/select2.css" type="text/css" />
+        <style type="text/css">
+
+        </style>
+    {% endblock %}
+
+    {% block extra_js %}
+    <script src="https://raw.github.com/kangax/fabric.js/master/dist/all.js"></script>
+     <script src="http://fabricjs.com/lib/fabric.js"></script>
+    <script type="text/javascript" src="/static/js/select2.js"></script>
+    <script type="text/javascript" src="/static/js/fabric_test.js"></script>
+    {% endblock %}
+
+    
+    
+    {% block wrapper %}
+        
+        
+    <p id="logo">
+        <a href="/test">build</a> / <a href="/browse">browse</a>
+    </p>
+    
+    <div id="editToolBlock">
+        
+            <div class="span4">
+                <!--<span>Search &amp; sort</span>-->
+                <input id="searchList" placeholder="Search..." />
+                 <!-- <select multiple name="e9" id="e9" style="width:300px" class="populate"></select> -->
+            </div> <!-- please delete unnecessary CSS later -->
+    
+            <p id="zoomControl">
+                <img id="zoomPlus" src="/static/img/zoom-in.png" width="42" height="42">
+                <img id="zoomMinus" src="/static/img/zoom-out.png" width="42" height="42">
+            </p>
+    
+    <div class="clear"></div>
+    
+    <br />
+        <div id="listView">
+            
+            <!-- <a href="" class="locationList">Mumbai</a> -->
+            
+            
+            
+            <div class="objectEach">
+               
+                <img src="static/img/t1a.jpg" alt="" class="objectThumb">
+                <div class="objectMetaData">
+                    <p class="objectTitle">Tool A</p>
+                    <p>10cm x 6cm</p>
+                    <a href="" target="_blank"><img src="/static/img/zoom-detail.png" alt="zoom-icon" title="View details in new window" class="zoomViewDetails" /></a>
+                </div>
+                
+                <!--<div class="clear"></div>-->
+                
+            </div> <!-- end object each -->
+        
+            <div class="objectEach">
+               
+                <img src="static/img/t1a.jpg" alt="" class="objectThumb">
+                <div class="objectMetaData">
+                    <p class="objectTitle">Tool A</p>
+                    <p>10cm x 6cm</p>
+                    <a href="" target="_blank"><img src="/static/img/zoom-detail.png" alt="zoom-icon" title="View details in new window" class="zoomViewDetails" /></a>
+                </div>
+                
+                <!--<div class="clear"></div>-->
+                
+            </div> <!-- end object each -->
+
+            <div class="objectEach">
+               
+                <img src="static/img/t1a.jpg" alt="" class="objectThumb">
+                <div class="objectMetaData">
+                    <p class="objectTitle">Tool A</p>
+                    <p>10cm x 6cm</p>
+                    <a href="" target="_blank"><img src="/static/img/zoom-detail.png" alt="zoom-icon" title="View details in new window" class="zoomViewDetails" /></a>
+                </div>
+                
+                <!--<div class="clear"></div>-->
+                
+            </div> <!-- end object each -->
+
+            <div class="objectEach">
+               
+                <img src="static/img/t1a.jpg" alt="" class="objectThumb">
+                <div class="objectMetaData">
+                    <p class="objectTitle">Tool A</p>
+                    <p>10cm x 6cm</p>
+                    <a href="" target="_blank"><img src="/static/img/zoom-detail.png" alt="zoom-icon" title="View details in new window" class="zoomViewDetails" /></a>
+                </div>
+                
+                <!--<div class="clear"></div>-->
+                
+            </div> <!-- end object each -->
+
+            <div class="objectEach">
+               
+                <img src="static/img/t1a.jpg" alt="" class="objectThumb">
+                <div class="objectMetaData">
+                    <p class="objectTitle">Tool A</p>
+                    <p>10cm x 6cm</p>
+                    <a href="" target="_blank"><img src="/static/img/zoom-detail.png" alt="zoom-icon" title="View details in new window" class="zoomViewDetails" /></a>
+                </div>
+                
+                <!--<div class="clear"></div>-->
+                
+            </div> <!-- end object each -->
+
+            <div class="objectEach">
+               
+                <img src="static/img/t1a.jpg" alt="" class="objectThumb">
+                <div class="objectMetaData">
+                    <p class="objectTitle">Tool A</p>
+                    <p>10cm x 6cm</p>
+                    <a href="" target="_blank"><img src="/static/img/zoom-detail.png" alt="zoom-icon" title="View details in new window" class="zoomViewDetails" /></a>
+                </div>
+                
+                <!--<div class="clear"></div>-->
+                
+            </div> <!-- end object each -->
+
+            <div class="objectEach">
+               
+                <img src="static/img/t1a.jpg" alt="" class="objectThumb">
+                <div class="objectMetaData">
+                    <p class="objectTitle">Tool A</p>
+                    <p>10cm x 6cm</p>
+                    <a href="" target="_blank"><img src="/static/img/zoom-detail.png" alt="zoom-icon" title="View details in new window" class="zoomViewDetails" /></a>
+                </div>
+                
+                <!--<div class="clear"></div>-->
+                
+            </div> <!-- end object each -->
+
+            <div class="objectEach">
+               
+                <img src="static/img/t1a.jpg" alt="" class="objectThumb">
+                <div class="objectMetaData">
+                    <p class="objectTitle">Tool A</p>
+                    <p>10cm x 6cm</p>
+                    <a href="" target="_blank"><img src="/static/img/zoom-detail.png" alt="zoom-icon" title="View details in new window" class="zoomViewDetails" /></a>               
+                </div>
+                
+                <!--<div class="clear"></div>-->
+                
+            </div> <!-- end object each -->
+
+            <div class="objectEach">
+               
+                <img src="static/img/t1a.jpg" alt="" class="objectThumb">
+                <div class="objectMetaData">
+                    <p class="objectTitle">Tool A</p>
+                    <p>10cm x 6cm</p>
+                    <a href="" target="_blank"><img src="/static/img/zoom-detail.png" alt="zoom-icon" title="View details in new window" class="zoomViewDetails" /></a>
+                </div>
+                
+                <!--<div class="clear"></div>-->
+                
+            </div> <!-- end object each -->
+
+            <div class="objectEach">
+               
+                <img src="static/img/t1a.jpg" alt="" class="objectThumb">
+                <div class="objectMetaData">
+                    <p class="objectTitle">Tool A</p>
+                    <p>10cm x 6cm</p>
+                    <a href="" target="_blank"><img src="/static/img/zoom-detail.png" alt="zoom-icon" title="View details in new window" class="zoomViewDetails" /></a>
+                </div>
+                
+                <!--<div class="clear"></div>-->
+                
+            </div> <!-- end object each -->
+
+            <div class="objectEach">
+               
+                <img src="static/img/t1a.jpg" alt="" class="objectThumb">
+                <div class="objectMetaData">
+                    <p class="objectTitle">Tool A</p>
+                    <p>10cm x 6cm</p>
+                    <a href="" target="_blank"><img src="/static/img/zoom-detail.png" alt="zoom-icon" title="View details in new window" class="zoomViewDetails" /></a>
+                </div>
+                
+                <!--<div class="clear"></div>-->
+                
+            </div> <!-- end object each -->
+        
+        </div> <!-- end list view -->
+    
+       <div id="canvasView">
+            <div id="loadingImage" style="display:none;">
+                Loading Image onto Canvas...
+            </div>
+            <canvas id="c" style="width:500px;height:600px;">
+            </canvas> <br />
+            <div id="canvasControls">
+                Rotate: <input type="range" id="rotate" class="range" min="0" max="360" value="0" />
+            </div>
+      </div><!-- end canvas view -->
+        
+        <div class="clear"></div>
+    
+    </div> <!-- end edit tool block -->
+    
+    {% endblock %}
