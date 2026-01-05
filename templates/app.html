@@ -339,7 +339,7 @@
 				<button onclick="CVal.validateSignInForm(this.form , event);" class="buttonAppStyle">Sign In </button>
 				<div class="clear"></div>
                 <div class="small">
-                    <a target="_blank" href="{% url django.contrib.auth.views.password_reset %}">Forgot your password?</a>
+                    <a target="_blank" href="{% url 'password_reset' %}">Forgot your password?</a>
                 </div>
 				<div id="signInError" class="formError"></div>
 			</form>	
