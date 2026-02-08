@@ -1,0 +1,14 @@
+# Gunicorn socket for Assemblage Django application
+# Place this file at /etc/systemd/system/gunicorn.socket
+
+[Unit]
+Description=gunicorn socket for Assemblage Django application
+
+[Socket]
+ListenStream=/run/gunicorn/assemblage.sock
+SocketUser=assemblage
+SocketGroup=www-data
+SocketMode=0660
+
+[Install]
+WantedBy=sockets.target

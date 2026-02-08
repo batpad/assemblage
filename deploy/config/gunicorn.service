@@ -1,0 +1,47 @@
+# Gunicorn service for Assemblage Django application
+# Place this file at /etc/systemd/system/gunicorn.service
+
+[Unit]
+Description=gunicorn daemon for Assemblage Django application
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+Type=notify
+User=assemblage
+Group=www-data
+RuntimeDirectory=gunicorn
+WorkingDirectory=/home/assemblage/assemblage
+Environment="PATH=/home/assemblage/assemblage/venv/bin"
+EnvironmentFile=/home/assemblage/assemblage/.env
+
+# Start command
+ExecStart=/home/assemblage/assemblage/venv/bin/gunicorn \
+          --access-logfile /home/assemblage/logs/gunicorn-access.log \
+          --error-logfile /home/assemblage/logs/gunicorn-error.log \
+          --workers 3 \
+          --worker-class sync \
+          --worker-connections 1000 \
+          --max-requests 1000 \
+          --max-requests-jitter 50 \
+          --timeout 30 \
+          --bind unix:/run/gunicorn/assemblage.sock \
+          --pid /run/gunicorn/assemblage.pid \
+          assemblage.wsgi:application
+
+# Reload command
+ExecReload=/bin/kill -s HUP $MAINPID
+
+# Stop command  
+ExecStop=/bin/kill -s TERM $MAINPID
+
+# Give up if service fails to start
+Restart=on-failure
+RestartSec=5s
+
+# Process tracking
+PIDFile=/run/gunicorn/assemblage.pid
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
