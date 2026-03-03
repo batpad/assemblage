@@ -90,7 +90,7 @@ class Item(models.Model):
         import base64
         fil.write(base64.b64decode(imgstr))
         fil.close()    
-        f = File(open(tmp_path))
+        f = File(open(tmp_path, "rb"))
         
         self.image.save(filename, f)
         self.save()

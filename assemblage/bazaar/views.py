@@ -103,7 +103,7 @@ def get_user(request):
 
 
 def get_apps(request):
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         return render_to_json_response({'error': 'User not logged in'})
     user = request.user
     apps = App.objects.filter(user=user)
@@ -220,7 +220,7 @@ def save_app(request):
     fabric_data = request.POST.get("fabric", False)
     if not title or not fabric_data:
         return render_to_json_response({'error': 'Insufficient data to save', 'code': 0})
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         return render_to_json_response({'error': 'User not logged in', 'code': 1})
     app, created = App.objects.get_or_create(name=title)
     if created:
@@ -249,7 +249,8 @@ def export_item(request):
     title = request.POST.get("title", False)
     size = request.POST.get("size", False)
     data_uri = request.POST.get("data_uri", False)
-    items = [int(it) for it in json.loads(request.POST.get("items", "[]"))]
+    items_raw = json.loads(request.POST.get("items", "[]"))
+    items = [int(it) for it in items_raw if it is not None]
     if not title or not size or not data_uri:
         return render_to_json_response({'error': "Insufficient data to save", 'code': 0})
     item = Item()

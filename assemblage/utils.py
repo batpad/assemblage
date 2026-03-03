@@ -11,7 +11,7 @@ def render_to_json_response(dictionary, status=200):
     """
     Replacement for ox.django.shortcuts.render_to_json_response
     """
-    return JsonResponse(dictionary, status=status)
+    return JsonResponse(dictionary, status=status, safe=False)
 
 
 def http_file_response(path, content_type=None, filename=None):
